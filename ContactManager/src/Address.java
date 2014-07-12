@@ -4,6 +4,7 @@ public class Address {
 	public String streetName;
 	public String streetNumber;
 	public int apartmentNumber;
-	public 
+	public String city;
+	
 	
 }
