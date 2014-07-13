@@ -1,6 +1,6 @@
 
 public enum AddressType {
-	home,
-	work,
-	other
+	HOME,
+	WORK,
+	OTHER
 }
