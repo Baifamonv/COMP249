@@ -19,7 +19,8 @@ public class Address {
 	}
 	
 	public boolean equals(Address address){
-		return(this.addressType.equals(address.addressType)
+		return(address != null
+				&& this.addressType.equals(address.addressType)
 				&&(this.streetName.equals(address.streetName))
 				&&(this.streetNumber.equals(address.streetNumber))
 				&&(this.apartmentNumber.equals(address.apartmentNumber))

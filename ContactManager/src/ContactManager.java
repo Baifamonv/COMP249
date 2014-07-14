@@ -2,7 +2,7 @@ import java.util.EmptyStackException;
 
 
 public class ContactManager {
-	public Contact[] contact;
+	private Contact[] contact = new Contact[10];
 	/**
 	 * Check if contact exist
 	 * @param contact
@@ -40,36 +40,65 @@ public class ContactManager {
 		boolean isExist = CheckContact(contact1);
 		if (!isExist){
 			int emptyContact = FindEmptyIndexContact(contact);
+			if (emptyContact >= 0){
 			contact[emptyContact] = contact1;
+			}
 		}
 	}
 	/**
 	 * Give the number of the stored contacts
 	 * @return the number of the contacts
 	 */
-	public int numberOfContact(){
-		return contact.length;
+	public int emptyContact(){
+		for (int i = 0; i < contact.length;i++){
+			if (contact[i] == null){
+				return i;
+			}
+		}
+		return 10;
 	}
+	/**
+	 * Print out the number of the contacts
+	 */
+	public void numberOfContact(){
+		
+		System.out.println("There are "+ emptyContact() + " contacts stored right now");
+		
+	}
+	/**
+	 *  Search Contact
+	 * @param name that might be contained in first name or last name
+	 * @return the searched contacts
+	 */
 	
 	public void searchContacts(String name){
 		for (int i = 0; i < contact.length;i++){
-			if (name.contains(contact[i].getFirstName())){
-				System.out.println("The contact is " + contact[i].getFirstName() + " " 
+			if(contact[i] != null){
+				if((name.contains(contact[i].getFirstName()))||(name.contains(contact[i].getLastName()))){
+				System.out.println("The contact you are looking for is " + contact[i].getFirstName() + " " 
 			+ contact[i].getLastName());
+				}
 			}
-			else
-				System.out.println("Sorry, I cannot find the contact with the name provided");
+			
 		}
-		
+		System.out.println("Sorry, I cannot find the contact with the name provided");
 	}
+	/**
+	 * Find contacts associated with the given social network type
+	 * @param type of the social network 
+	 */ 
 	public void findContactsInSocialNetwork(SocialNetworkAccountType type){
 		for (int i =0; i < contact.length;i++){
-			if(type.equals(contact[i].SocialNetworkAccountType)){
-				
+			if(contact[i] != null){
+				if(contact[i].checkExsitSocialAccount(type)){
+				System.out.println("The account associtated with this network type is " 
+						+ contact[i].getLastName() +  " " + contact[i].firstName);
+				}
 			}
 		}
 		
 	}
+	
 	
 	
 	

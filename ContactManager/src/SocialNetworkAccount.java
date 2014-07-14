@@ -7,7 +7,7 @@ public class SocialNetworkAccount {
 		this.id = id;
 	}
 	public boolean equals(SocialNetworkAccount socialAccount){
-		return ((this.socialNetworkAccountType.equals(socialAccount.socialNetworkAccountType))
+		return ((socialAccount != null&&this.socialNetworkAccountType.equals(socialAccount.socialNetworkAccountType))
 				&&(this.id == socialAccount.id));
 		
 	}

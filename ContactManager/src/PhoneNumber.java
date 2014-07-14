@@ -14,7 +14,7 @@ public class PhoneNumber {
 		this.extension = extension;
 	}
 	public boolean equals(PhoneNumber phoneNumber){
-		return((this.phoneNumberType.equals(phoneNumber.phoneNumberType))&&(this.countryCode == phoneNumber.countryCode)
+		return((phoneNumber != null && this.phoneNumberType.equals(phoneNumber.phoneNumberType))&&(this.countryCode == phoneNumber.countryCode)
 				&&(this.areaCode == phoneNumber.areaCode)&&(this.phoneNumber == phoneNumber.phoneNumber)
 				&&(this.extension == phoneNumber.extension));
 	}

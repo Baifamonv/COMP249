@@ -20,22 +20,10 @@ public class Contact {
 	}
 
 	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	/**
 	 * @return the firstName
 	 */
 	public String getFirstName() {
 		return firstName;
-	}
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
 	}
 
 
@@ -46,7 +34,7 @@ public class Contact {
  */
 	
 	public boolean equals(Contact contact) {
-		return ((lastName.equals(contact.lastName))
+		return ((contact != null&&lastName.equals(contact.lastName))
 				&& (firstName.equals(contact.firstName))
 				&& (middleName.equals(contact.middleName)));
 	}
@@ -95,7 +83,7 @@ public class Contact {
 		if (!areAddressEquals) {
 			int emptyIndex = FindEmptyIndexAddress(addressList);
 
-			if (emptyIndex > 0) {
+			if (emptyIndex >= 0) {
 				addressList[emptyIndex] = address;
 			}
 		}
@@ -145,7 +133,7 @@ public class Contact {
 		boolean arePhoneNumberEquals = this.CheckPhoneNumber(phoneNumber);
 		if (!arePhoneNumberEquals) {
 			int emptyPhoneNumber = FindEmptyIndexPhoneNumber(phoneNumberList);
-			if (emptyPhoneNumber > 0) {
+			if (emptyPhoneNumber >= 0) {
 				phoneNumberList[emptyPhoneNumber] = phoneNumber;
 			}
 		}
@@ -192,15 +180,22 @@ public class Contact {
 		boolean isExist = CheckSocial(socialAccount);
 		if (!isExist == true) {
 			int emptySocial = FindEmptyIndexSocial(socialNetworkAccountList);
-			if (emptySocial > 0) {
+			if (emptySocial >= 0) {
 				socialNetworkAccountList[emptySocial] = socialAccount;
 			}
 		}
 	}
-	public boolean CheckExsitSocialAccount(SocialNetworkAccountType type){
-		for (int i = 0 ; 0 < socialNetworkAccountList.length; i++ ){
-			if (type.equals(this.socialNetworkAccountList[i].SocialNetworkAccountTYPE))
+	/**
+	 * Check if the account exist for the type
+	 * @param type
+	 * @return
+	 */
+	public boolean checkExsitSocialAccount(SocialNetworkAccountType type){
+		for (int i = 0 ; i < socialNetworkAccountList.length; i++ ){
+			if(socialNetworkAccountList[i] != null){
+				if (type.equals(this.socialNetworkAccountList[i].socialNetworkAccountType))
 				return true;
+			}
 		}
 		return false;
 		}
