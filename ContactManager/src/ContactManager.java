@@ -117,7 +117,11 @@ public class ContactManager {
 		}
 
 	}
-
+/**
+ *  Sort contacts in ascending order
+ * @return all contacts stored in the ContactManager sorted 
+ * alphabetically in ascending order
+ */
 	public Contact[] sortContacts() {
 		Contact sort = null;
 		for (int i = 0; i < contact.length; i++) {
