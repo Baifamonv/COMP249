@@ -8,10 +8,11 @@ public class Driver {
 		ContactManager manager = new ContactManager();
 		
 		Contact contact1 = new Contact("Tsantalis", "Nikolaos", null);
-		Contact contact2 = new Contact("Rigby", "Peter", "C.");
+		Contact contact2 = new Contact("Chen", "Peter", "C.");
 		Contact contact3 = new Contact("Tsantalis", "Atha", null);
-		Contact contact4 = new Contact("Jane", "Chen", null);
-		Contact contact5 = new Contact("Eric", "Daig", null);
+		Contact contact4 = new Contact("Chen", "Jane", null);
+		Contact contact5 = new Contact("Chen", "Daig", null);
+	
 		
 		Address address1 = new Address(AddressType.WORK, "St. Catherine St. West", "1515", "EV 3.112", "Montreal", "H3G 1M8", "Canada");
 		Address address2 = new Address(AddressType.WORK, "St. Catherine St. West", "2515", "EV 3.112", "Montreal", "H3G 1M8", "Canada");
@@ -55,17 +56,17 @@ public class Driver {
 		manager.addContact(contact4);
 		manager.addContact(contact5);
 		
-		System.out.println(contact1.addressList[0]);
+		
 		
 		manager.numberOfContact();
 		manager.searchContacts("Jane");
 		manager.findContactsInSocialNetwork(SocialNetworkAccountType.SKYPE);
 		
-		/**Contact[] contacts = manager.sortContacts();
+		Contact[] contacts = manager.sortContacts();
 		for(int i=0; i<contacts.length; i++) {
 			System.out.println(contacts[i]);
 		}
-		*/
+		
 	}
 
 }

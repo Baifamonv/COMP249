@@ -5,7 +5,7 @@ public class PhoneNumber {
 	public int areaCode;
 	public int phoneNumber;
 	public int extension;
-	public PhoneNumber(PhoneNumberType PhoneNumberType, int countryCode, int areaCode,
+	public PhoneNumber(PhoneNumberType phoneNumberType, int countryCode, int areaCode,
 			int phoneNumber, int extension) {
 		this.phoneNumberType = phoneNumberType;
 		this.countryCode = countryCode;

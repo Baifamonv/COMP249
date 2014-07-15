@@ -200,5 +200,8 @@ public class Contact {
 		return false;
 		}
 	
-
+	public String toString()
+	{
+		return this.lastName + ", " + this.firstName;
+	}
 }
